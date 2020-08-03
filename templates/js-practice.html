@@ -212,16 +212,24 @@
 <script>
   "use strict";
 
-  const showPuppies(response) {
+  const showPuppies = (response) => {
     // Get the URL for the puppy photo
     const url = response.url;
 
     // Clear anything that was in the div, then add the img element
     $('#puppies-go-here').empty();
     $('#puppies-go-here').append(`<img src="${url}">`);
-  }
+  };
 
-  // TODO: replace this with your code
+  $('#puppy-form').on('submit', (evt) => {
+    evt.preventDefault();
+
+    const numPuppies = {
+      'num-puppies': $('#num-puppies').val()
+    };
+    // console.log($('#num-puppies').val());
+    $.get('/api/puppies', numPuppies, showPuppies);
+  });
 </script>
 
 <div class="hint">
