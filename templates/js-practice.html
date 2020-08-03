@@ -81,7 +81,23 @@
 <script>
   "use strict";
 
-  // TODO: replace this with your code
+  const form = document.querySelector('#multiplying-form');
+  form.addEventListener('submit', (evt) => {
+    // console.log('hello');
+    evt.preventDefault();
+    let multiplesArray = [];
+    const max = Number(document.querySelector('#max').value);
+    const multiplesOf = Number(document.querySelector('#mults-of').value);
+    for (const i of Array(max)) {
+      // console.log(max);
+      const multiple = multiplesOf * i;
+      // console.log(multiplesOf);
+      multiplesArray.push(multiple);
+    };
+
+    console.log(multiplesArray);
+
+  })
 </script>
 
 <div class="hint">
